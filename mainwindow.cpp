@@ -198,14 +198,6 @@ void MainWindow::eval()
     int x,y=0,z=0,flag=0;
     numobj=0;
     temp="";
-    /*int pos=findop();
-    int pos1=pos+1;
-    s1=s.mid(0,pos);
-    s2=s.mid(pos1,len-1);
-    op1=s1.toDouble();
-    op2=s2.toDouble();
-    ans=calc(op1,op2,s[pos]);
-    */
 
     for(x=0;y<len;x++)
     {
@@ -288,7 +280,6 @@ int MainWindow::priority(QString a)
 
 void MainWindow::convpost()
 {
-   // int j=0;
     for(int i=0;i<=numobj;i++)
     {
         temp=queue.dequeue();
@@ -319,24 +310,9 @@ void MainWindow::convpost()
     }
     while(!stck.isEmpty())
         postqueue.enqueue(stck.pop());
- //   numobj=j-1;
 }
 
-/*int MainWindow::findop(QString a)
-{
-    int n=s.indexOf("+",0);
-    if(n==-1)
-        n=s.indexOf("-",0);
-    if(n==-1)
-        n=s.indexOf("*",0);
-    if(n==-1)
-        n=s.indexOf("/",0);
-    if(n==-1)
-        n=s.indexOf("^",0);
 
-    return n;
-
-}*/
 
 double MainWindow::calc(double op1, double op2, QString op)
 {
