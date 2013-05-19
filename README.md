@@ -1,4 +1,4 @@
 Calculator-using-Qt
 ===================
 
-Simple Calculator
+I t is program of Simple Calculator which also supports expressions.
