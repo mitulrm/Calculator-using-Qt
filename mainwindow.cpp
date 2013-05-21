@@ -6,14 +6,35 @@
 #include <QStack>
 #include <QQueue>
 #include <QtCore/qmath.h>
+#include <QPalette>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    setFixedSize(363,378);
+    setFixedSize(351,340);
     ui->setupUi(this);
     ui->screen->setText("");
+    ui->plusButton->setStyleSheet("background-color: red");
+    ui->minusButton->setStyleSheet("background-color: red");
+    ui->divideButton->setStyleSheet("background-color: red");
+    ui->multiplyButton->setStyleSheet("background-color: red");
+    ui->powerButton->setStyleSheet("background-color: red");
+    ui->oneButton->setStyleSheet("background-color: red");
+    ui->twoButton->setStyleSheet("background-color: red");
+    ui->threeButton->setStyleSheet("background-color: red");
+    ui->fourButton->setStyleSheet("background-color: red");
+    ui->fiveButton->setStyleSheet("background-color: red");
+    ui->sixButton->setStyleSheet("background-color: red");
+    ui->sevenButton->setStyleSheet("background-color: red");
+    ui->eightButton->setStyleSheet("background-color: red");
+    ui->nineButton->setStyleSheet("background-color: red");
+    ui->zeroButton->setStyleSheet("background-color: red");
+    ui->pointButton->setStyleSheet("background-color: red");
+    ui->sbracketButton->setStyleSheet("background-color: red");
+    ui->ebracketButton->setStyleSheet("background-color: red");
+    ui->clearButton->setStyleSheet("background-color: red");
+    ui->equalButton->setStyleSheet("background-color: red");
     connect(ui->plusButton,SIGNAL(clicked()),this,SLOT(appendpl()));
     connect(ui->minusButton,SIGNAL(clicked()),this,SLOT(appendmi()));
     connect(ui->multiplyButton,SIGNAL(clicked()),this,SLOT(appendmu()));
@@ -198,6 +219,14 @@ void MainWindow::eval()
     int x,y=0,z=0,flag=0;
     numobj=0;
     temp="";
+    /*int pos=findop();
+    int pos1=pos+1;
+    s1=s.mid(0,pos);
+    s2=s.mid(pos1,len-1);
+    op1=s1.toDouble();
+    op2=s2.toDouble();
+    ans=calc(op1,op2,s[pos]);
+    */
 
     for(x=0;y<len;x++)
     {
@@ -280,6 +309,7 @@ int MainWindow::priority(QString a)
 
 void MainWindow::convpost()
 {
+   // int j=0;
     for(int i=0;i<=numobj;i++)
     {
         temp=queue.dequeue();
@@ -310,9 +340,24 @@ void MainWindow::convpost()
     }
     while(!stck.isEmpty())
         postqueue.enqueue(stck.pop());
+ //   numobj=j-1;
 }
 
+/*int MainWindow::findop(QString a)
+{
+    int n=s.indexOf("+",0);
+    if(n==-1)
+        n=s.indexOf("-",0);
+    if(n==-1)
+        n=s.indexOf("*",0);
+    if(n==-1)
+        n=s.indexOf("/",0);
+    if(n==-1)
+        n=s.indexOf("^",0);
 
+    return n;
+
+}*/
 
 double MainWindow::calc(double op1, double op2, QString op)
 {
